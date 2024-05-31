@@ -1,12 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   getDataCamperThunk,
   updateFavoriteThunk,
 } from '../../redux/serviceThunks';
+import CatalogItem from '../CatalogItem/CatalogItem';
+import { selectDataCamper } from '../../redux/selector';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const endPoint = 'advert';
+  const mapData = useSelector(selectDataCamper);
   const updateData = {
     name: 'name 1',
     price: 12,
@@ -46,6 +49,9 @@ const Catalog = () => {
       <button type="button" onClick={favoriteClick}>
         getFavorites
       </button>
+      {mapData?.map(item => (
+        <CatalogItem />
+      ))}
     </div>
   );
 };
