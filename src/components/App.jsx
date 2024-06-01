@@ -6,17 +6,18 @@ const HomePage = lazy(() => import('../page/homePage/HomePage'));
 const FavoritePage = lazy(() => import('../page/favoritesPage/FavoritePage'));
 const CatalogPage = lazy(() => import('../page/catalogPage/CatalogPage'));
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/camper" element={<Layout />}>
           <Route index element={<HomePage />} />
 
-          <Route path="/favorite" element={<FavoritePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/camper/favorite" element={<FavoritePage />} />
+          <Route path="/camper/catalog" element={<CatalogPage />} />
         </Route>
       </Routes>
     </>
   );
 };
+export default App;
