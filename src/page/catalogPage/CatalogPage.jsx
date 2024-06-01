@@ -2,7 +2,7 @@ import Catalog from '../../components/Catalog/Catalog';
 
 const CatalogPage = () => {
   return (
-    <div>
+    <div className="container">
       CatalogPage
       <Catalog />
     </div>
