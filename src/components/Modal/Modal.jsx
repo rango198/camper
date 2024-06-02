@@ -13,7 +13,7 @@ export default function Modal({ show, children, onClose }) {
           zIndex: 50,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center', // додано для центрування по горизонталі
+          justifyContent: 'center',
         }}
       >
         <Transition.Child
@@ -47,10 +47,18 @@ export default function Modal({ show, children, onClose }) {
             padding: '1.75rem',
             margin: '1.25rem auto',
             width: '100%',
-            maxWidth: '32rem',
+            maxWidth: '982px',
+            maxHeight: '720px',
           }}
         >
-          {children}
+          <div
+            style={{
+              maxHeight: 'calc(100vh - 3.5rem)', // You can adjust this value
+              overflowY: 'auto',
+            }}
+          >
+            {children}
+          </div>
         </Dialog.Panel>
       </Dialog>
     </Transition.Root>

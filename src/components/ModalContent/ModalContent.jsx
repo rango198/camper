@@ -1,36 +1,47 @@
 import { useSelector } from 'react-redux';
 import { selectModalContent } from '../../redux/selector';
+import * as Style from './ModalContent.styled';
+import Tabs from '../Tabs/Tabs';
 
 const ModalContent = () => {
   const { recordData } = useSelector(selectModalContent);
-  console.log(recordData);
 
   return (
     <div>
       <div>
-        <p>{recordData?.name}</p>
-        <p>
-          {recordData?.reviews?.length} reviews, {recordData?.location}
-        </p>
-        <p>
+        <Style.TextName>{recordData?.name}</Style.TextName>
+        <Style.WrraperRating>
+          <p>
+            {recordData?.reviews?.length} reviews, {recordData?.location}
+          </p>
+        </Style.WrraperRating>
+        <Style.TextPrice>
           €
           {isNaN(Number(recordData?.price))
             ? '0.00'
             : Number(recordData?.price).toFixed(2)}
-        </p>
+        </Style.TextPrice>
       </div>
-      <div>
+      <div style={{ display: 'flex', gap: '16px' }}>
         {recordData?.gallery?.map((item, index) => (
-          <div key={index}>
-            <img
-              src={item}
-              alt="img"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </div>
+          <div
+            key={index}
+            style={{
+              minWidth: '290px',
+              height: '310px',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundImage: `url(${item})`,
+            }}
+          ></div>
         ))}
       </div>
       <div>{recordData?.description}</div>
+      <div>
+        <Tabs />
+      </div>
     </div>
   );
 };
