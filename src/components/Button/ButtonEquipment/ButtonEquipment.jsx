@@ -1,42 +1,60 @@
+import React from 'react';
 import Icon from '../../Icon/Icon';
+import AirIcon from '@mui/icons-material/Air';
+
 const ButtonEquipment = () => {
   const data = [
-    { title: 'AC', iconId: 'AC' },
+    { title: 'AC', iconId: 'AirIcon' },
     { title: 'Automatic', iconId: 'Automatic' },
     { title: 'Kitchen', iconId: 'kitchen' },
     { title: 'TV', iconId: 'TV' },
     { title: 'Shower', iconId: 'Shower' },
   ];
 
+  const renderIcon = iconId => {
+    if (iconId === 'AirIcon') {
+      return <AirIcon style={{ fill: '#212121', width: 24, height: 24 }} />;
+    }
+    return (
+      <Icon
+        styles={{
+          fill: '#212121',
+        }}
+        width={24}
+        height={24}
+        iconId={iconId}
+      />
+    );
+  };
+
   return (
     <div
-      style={{ display: 'flex', gap: '8px', width: '360px', flexWrap: 'wrap' }}
+      style={{
+        display: 'flex',
+        gap: '15px',
+        width: '360px',
+        flexWrap: 'wrap',
+        padding: '24px 0',
+        borderTop: '1px solid #8a848471',
+      }}
     >
       {data.map(item => (
         <div key={item.title}>
           <button
             type="button"
             style={{
-              width: '97px',
+              width: '110px',
               display: 'flex',
               height: '95px',
+              gap: '8px',
               padding: '17px 18px',
               flexDirection: 'column',
-
-              gap: '8px',
-              border: '1px solid #5a5757',
+              border: '1px solid #5a57579e',
               borderRadius: '10px',
               alignItems: 'center',
             }}
           >
-            <Icon
-              styles={{
-                fill: '#212121',
-              }}
-              width={24}
-              height={24}
-              iconId={item.iconId}
-            />
+            {renderIcon(item.iconId)}
             {item.title}
           </button>
         </div>

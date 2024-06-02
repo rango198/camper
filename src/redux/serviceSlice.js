@@ -6,12 +6,25 @@ const initialState = {
   isLoading: false,
   dataCamper: [],
   favorites: [],
+  openModal: false,
+  modalContent: {
+    action: null,
+    recordData: null,
+    id: null,
+  },
 };
 
 const serviceSlice = createSlice({
   name: 'service',
   initialState,
-  reducers: {},
+  reducers: {
+    setModalStatus: (state, action) => {
+      state.openModal = action.payload;
+    },
+    setModalContent: (state, action) => {
+      state.modalContent = { ...state.modalContent, ...action.payload };
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getDataCamperThunk.pending, state => {
@@ -50,5 +63,7 @@ const serviceSlice = createSlice({
       });
   },
 });
+
+export const { setModalStatus, setModalContent } = serviceSlice.actions;
 
 export const serviceReducer = serviceSlice.reducer;

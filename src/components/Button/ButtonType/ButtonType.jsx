@@ -8,20 +8,26 @@ const ButtonType = () => {
   ];
   return (
     <div
-      style={{ display: 'flex', gap: '8px', width: '360px', flexWrap: 'wrap' }}
+      style={{
+        display: 'flex',
+        gap: '15px',
+        width: '360px',
+        flexWrap: 'wrap',
+        padding: '24px 0',
+        borderTop: '1px solid #8a848471',
+      }}
     >
       {data.map(item => (
         <div key={item.title}>
           <button
             style={{
-              width: '97px',
+              width: '110px',
               display: 'flex',
               height: '95px',
+              gap: '8px',
               padding: '17px 18px',
               flexDirection: 'column',
-
-              gap: '8px',
-              border: '1px solid #5a5757',
+              border: '1px solid #5a57579e',
               borderRadius: '10px',
               alignItems: 'center',
             }}

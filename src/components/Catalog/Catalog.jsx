@@ -3,17 +3,22 @@ import { getDataCamperThunk } from '../../redux/serviceThunks';
 import CatalogItem from '../CatalogItem/CatalogItem';
 import { selectDataCamper } from '../../redux/selector';
 import Sidebar from '../Sidebar/Sidebar';
+import { useEffect } from 'react';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const endPoint = 'advert';
   const mapData = useSelector(selectDataCamper);
 
-  const handleClick = () => {
+  useEffect(() => {
     dispatch(getDataCamperThunk({ endPoint }));
-  };
+  }, [dispatch]);
+
+  // const handleClick = () => {
+  //   dispatch(getDataCamperThunk({ endPoint }));
+  // };
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', gap: '55px' }}>
       <Sidebar />
       <div
         style={{
@@ -23,9 +28,9 @@ const Catalog = () => {
           maxWidth: '888px',
         }}
       >
-        <button type="button" onClick={handleClick} style={{ width: '100px' }}>
+        {/* <button type="button" onClick={handleClick} style={{ width: '100px' }}>
           getData
-        </button>
+        </button> */}
         {mapData?.map(item => (
           <CatalogItem key={item?._id} item={item} />
         ))}
