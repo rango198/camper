@@ -6,6 +6,7 @@ export const getDataCamperThunk = createAsyncThunk(
   async ({ endPoint }, thunkAPI) => {
     try {
       const response = await getData({ endPoint });
+      console.log(response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
