@@ -19,7 +19,7 @@ export const TextDetails = styled.p`
   margin-bottom: 8px;
   font-size: 16px;
 
-  span:first-child {
+  span:first-of-type {
     margin-right: 10px;
     font-weight: 600;
   }

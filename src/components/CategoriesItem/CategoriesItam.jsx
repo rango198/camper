@@ -1,5 +1,6 @@
 import Icon from '../Icon/Icon';
 import * as Styled from './CategoriesItem.styled';
+import AirIcon from '@mui/icons-material/Air';
 
 const CategoriesItem = ({ item }) => {
   const categories = [
@@ -15,23 +16,32 @@ const CategoriesItem = ({ item }) => {
     {
       id: 'airConditioner',
       text: `${item?.details?.airConditioner} AC`,
-      iconId: 'AC',
+      iconId: 'AirIcon',
     },
   ];
+
+  const renderIcon = iconId => {
+    if (iconId === 'AirIcon') {
+      return <AirIcon style={{ fill: '#212121', width: 20, height: 20 }} />;
+    }
+    return (
+      <Icon
+        styles={{
+          fill: '#212121',
+        }}
+        width={20}
+        height={20}
+        iconId={iconId}
+      />
+    );
+  };
 
   return (
     <Styled.WrrapFlex>
       {categories?.map(category => (
         <Styled.WrapperCategoriesStyled key={category?.id}>
           <Styled.CategoriesItem>
-            <Icon
-              styles={{
-                fill: 'red',
-              }}
-              width={20}
-              height={20}
-              iconId={category?.iconId}
-            />
+            {renderIcon(category.iconId)}
             <Styled.ItemText>{category?.text}</Styled.ItemText>
           </Styled.CategoriesItem>
         </Styled.WrapperCategoriesStyled>

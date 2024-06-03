@@ -3,20 +3,26 @@ import { getDataCamperThunk } from '../../redux/serviceThunks';
 import CatalogItem from '../CatalogItem/CatalogItem';
 import { selectDataCamper } from '../../redux/selector';
 import Sidebar from '../Sidebar/Sidebar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const endPoint = 'advert';
+
   const mapData = useSelector(selectDataCamper);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
 
   useEffect(() => {
     dispatch(getDataCamperThunk({ endPoint }));
   }, [dispatch]);
 
-  // const handleClick = () => {
-  //   dispatch(getDataCamperThunk({ endPoint }));
-  // };
+  const endIndex = itemsPerPage;
+  const displayedItems = mapData?.slice(0, endIndex);
+
+  const loadMoreItems = () => {
+    setItemsPerPage(prevItemsPerPage => prevItemsPerPage + 4);
+  };
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center', gap: '55px' }}>
       <Sidebar />
@@ -28,14 +34,15 @@ const Catalog = () => {
           maxWidth: '888px',
         }}
       >
-        {/* <button type="button" onClick={handleClick} style={{ width: '100px' }}>
-          getData
-        </button> */}
-        {mapData?.map(item => (
+        {displayedItems?.map(item => (
           <CatalogItem key={item?._id} item={item} />
         ))}
+        {mapData?.length > itemsPerPage && (
+          <button onClick={loadMoreItems}>Load More</button>
+        )}
       </div>
     </div>
   );
 };
+
 export default Catalog;

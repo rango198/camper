@@ -6,6 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { Tab } from '@mui/material';
 import Features from '../Features/Features';
+import Reviews from '../Reviews/Reviews';
 
 ///////////////////////////////////////////////
 const Tabs = () => {
@@ -75,9 +76,7 @@ const Tabs = () => {
           <Features />
         </TabPanel>
         <TabPanel value="2" sx={{ padding: '0' }}>
-          <div>
-            <h5>two</h5>
-          </div>
+          <Reviews />
         </TabPanel>
       </TabContext>
     </>

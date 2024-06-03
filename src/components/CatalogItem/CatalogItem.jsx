@@ -6,6 +6,7 @@ import CategoriesItam from '../CategoriesItem/CategoriesItam';
 import * as Styled from './CatalogItem.styled';
 import ImgComponent from '../ImgItem/ImgComponent';
 import { setModalContent, setModalStatus } from '../../redux/serviceSlice';
+import StarIcon from '@mui/icons-material/Star';
 
 const CatalogItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -55,6 +56,7 @@ const CatalogItem = ({ item }) => {
           </Styled.PriceStyled>
         </Styled.WrrapNameAndPice>
         <Styled.WrraperRating>
+          <StarIcon sx={{ color: '#ffb400' }} />
           <p>
             {item?.rating} ({item?.reviews?.length} reviews)
           </p>
