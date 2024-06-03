@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import * as Style from './Form.styled';
 
@@ -38,7 +37,7 @@ const Form = () => {
         <Style.StyledDatePicker
           selected={bookingDate}
           onChange={date => setValue('bookingDate', date)}
-          placeholderText="Select booking date"
+          placeholderText="Booking date"
           dateFormat="yyyy/MM/dd"
         />
         <textarea
