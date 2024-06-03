@@ -40,7 +40,7 @@ const Form = () => {
           placeholderText="Booking date"
           dateFormat="yyyy/MM/dd"
         />
-        <textarea
+        <Style.StyledTextArea
           {...register('comments', { maxLength: 200 })}
           placeholder="Your comments"
         />

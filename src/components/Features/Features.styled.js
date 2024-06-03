@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const WrrapForm = styled.div`
-  border: 1px solid #212121;
+  border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 12px;
   padding: 24px;
   width: 50%;

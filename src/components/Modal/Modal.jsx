@@ -53,7 +53,7 @@ export default function Modal({ show, children, onClose }) {
         >
           <div
             style={{
-              maxHeight: 'calc(100vh - 3.5rem)', // You can adjust this value
+              maxHeight: 'calc(95vh - 3.5rem)', // You can adjust this value
               overflowY: 'auto',
             }}
           >

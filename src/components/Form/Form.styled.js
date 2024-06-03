@@ -21,6 +21,22 @@ export const Input = styled.input`
     box-shadow: none;
   }
 `;
+export const StyledTextArea = styled.textarea`
+  width: 100%;
+  height: 140px;
+  padding: 18px;
+  border: none;
+  outline: none;
+  background: #f7f7f7;
+  margin-bottom: 24px;
+  resize: none;
+  overflow: auto;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+`;
 
 export const StyledDatePicker = styled(DatePicker)`
   width: 100%;
