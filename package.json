@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://rango198.github.io/camper/",
   "dependencies": {
+    "react-loader-spinner": "^6.1.6",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@headlessui/react": "^2.0.4",

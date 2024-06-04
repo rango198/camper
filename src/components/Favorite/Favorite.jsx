@@ -16,7 +16,16 @@ const Favorite = () => {
   const favoriteData = useSelector(selectDataCamper);
 
   return (
-    <div>
+    <div
+      style={{
+        marginTop: '24px',
+        width: '900px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '24px',
+        margin: '0 auto',
+      }}
+    >
       {favoriteData?.map(item => {
         if (item.favorites === true) {
           return <CatalogItem key={item?._id} item={item} />;

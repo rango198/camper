@@ -7,7 +7,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(120deg, #e9e3c1 50%, hsl(180, 13%, 73%) 100%);
+  background-size: 400% 400%;
+  /* animation: gradient 15s ease infinite; */
+
 }
+
+
+/* @keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+} */
 
 @font-face {
   font-family: "Inter";
@@ -102,5 +122,5 @@ html {
 .container {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 50px 0px 10px;
+  padding: 25px 0px 10px;
 }

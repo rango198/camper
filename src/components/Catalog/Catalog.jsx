@@ -33,6 +33,8 @@ const Catalog = () => {
           flexDirection: 'column',
           gap: '32px',
           maxWidth: '888px',
+          height: '650px',
+          overflow: 'auto',
         }}
       >
         {displayedItems?.map(item => (
