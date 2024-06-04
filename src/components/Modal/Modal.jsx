@@ -16,6 +16,7 @@ export default function Modal({ show, children, onClose }) {
           justifyContent: 'center',
         }}
       >
+        close
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -57,6 +58,18 @@ export default function Modal({ show, children, onClose }) {
               overflowY: 'auto',
             }}
           >
+            <button
+              style={{
+                border: 'none',
+                marginLeft: '95%',
+                background: '#fff',
+                fontSize: '18px',
+              }}
+              type="button"
+              onClick={onClose}
+            >
+              X
+            </button>
             {children}
           </div>
         </Dialog.Panel>

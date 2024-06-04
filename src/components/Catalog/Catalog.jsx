@@ -1,50 +1,59 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataCamperThunk } from '../../redux/serviceThunks';
 import CatalogItem from '../CatalogItem/CatalogItem';
-import { selectDataCamper } from '../../redux/selector';
+import {
+  selectDataCamper,
+  selectIsLoading,
+  selectModalContent,
+} from '../../redux/selector';
 import Sidebar from '../Sidebar/Sidebar';
 import { useEffect, useState } from 'react';
+import * as Style from './Catalog.styled';
+import { filter } from '../services/services';
+import Loader from '../Loader/Loader';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const endPoint = 'advert';
 
   const mapData = useSelector(selectDataCamper);
+  const { recordData } = useSelector(selectModalContent);
+  const isLoading = useSelector(selectIsLoading);
+
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  // eslint-disable-next-line
+
   useEffect(() => {
     dispatch(getDataCamperThunk({ endPoint }));
     // eslint-disable-next-line
   }, []);
 
   const endIndex = itemsPerPage;
-  const displayedItems = mapData?.slice(0, endIndex);
+  const displayedItems = filter(recordData, mapData)?.slice(0, endIndex);
 
   const loadMoreItems = () => {
     setItemsPerPage(prevItemsPerPage => prevItemsPerPage + 4);
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '55px' }}>
-      <Sidebar />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '32px',
-          maxWidth: '888px',
-          height: '650px',
-          overflow: 'auto',
-        }}
-      >
-        {displayedItems?.map(item => (
-          <CatalogItem key={item?._id} item={item} />
-        ))}
-        {mapData?.length > itemsPerPage && (
-          <button onClick={loadMoreItems}>Load More</button>
-        )}
-      </div>
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Style.Wrraper>
+          <Sidebar />
+          <Style.WrrapCatalog>
+            {displayedItems?.map(item => (
+              <CatalogItem key={item?._id} item={item} />
+            ))}
+            {displayedItems?.length === itemsPerPage && (
+              <Style.LoadMoreButton onClick={loadMoreItems}>
+                Load More
+              </Style.LoadMoreButton>
+            )}
+          </Style.WrrapCatalog>
+        </Style.Wrraper>
+      )}
+    </>
   );
 };
 

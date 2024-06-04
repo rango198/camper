@@ -15,3 +15,19 @@ export const SidebarButton = styled.button`
   padding: 16px 60px;
   border: none;
 `;
+
+export const SidebarInput = styled.input`
+  border: none;
+  border-radius: 10px;
+  background: #d3d4d5;
+  padding: 18px;
+
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+`;

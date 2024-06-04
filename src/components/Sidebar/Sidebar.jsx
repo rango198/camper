@@ -2,13 +2,27 @@ import { Link } from 'react-router-dom';
 import ButtonEquipment from '../Button/ButtonEquipment/ButtonEquipment';
 import ButtonType from '../Button/ButtonType/ButtonType';
 import * as Styled from './Sidebar.styled';
+import { useDispatch } from 'react-redux';
+import { setModalContent } from '../../redux/serviceSlice';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const handleChang = event => {
+    const values = event.target.value;
+    if (values) {
+      dispatch(
+        setModalContent({
+          recordData: { values },
+        })
+      );
+    }
+  };
   return (
     <div style={{ width: '360px' }}>
       <div style={{ marginBottom: '24px' }}>
         <p>Location</p>
-        <input type="text" />
+        <Styled.SidebarInput type="text" onChange={handleChang} />
       </div>
       <p style={{ marginBottom: '24px' }}>Filters</p>
       <div>

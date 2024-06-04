@@ -30,7 +30,7 @@ const Favorite = () => {
         if (item.favorites === true) {
           return <CatalogItem key={item?._id} item={item} />;
         }
-        return;
+        return null;
       })}
     </div>
   );
