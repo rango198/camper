@@ -5,7 +5,6 @@ const initialState = {
   error: null,
   isLoading: false,
   dataCamper: [],
-  favorites: [],
   openModal: false,
   modalContent: {
     action: null,
@@ -48,13 +47,11 @@ const serviceSlice = createSlice({
         state.error = null;
         state.isLoading = false;
         const updatedItem = action.payload;
-        const index = state.favorites.findIndex(
-          item => item.id === updatedItem.id
+        const index = state.dataCamper.findIndex(
+          item => item._id === updatedItem._id
         );
         if (index !== -1) {
-          state.favorites.splice(index, 1);
-        } else {
-          state.favorites.push(updatedItem);
+          state.dataCamper[index] = updatedItem;
         }
       })
       .addCase(updateFavoriteThunk.rejected, (state, action) => {

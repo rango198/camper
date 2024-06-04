@@ -95,3 +95,19 @@ export const StyledDatePicker = styled(DatePicker)`
     font-size: 1.2em;
   }
 `;
+
+export const FormButton = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #e44848;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: white;
+  padding: 16px 60px;
+  border: none;
+  width: 156px;
+`;

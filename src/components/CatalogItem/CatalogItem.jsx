@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { updateFavoriteThunk } from '../../redux/serviceThunks';
 import { IconButton } from '@mui/material';
-import Icon from '../Icon/Icon';
 import CategoriesItam from '../CategoriesItem/CategoriesItam';
 import * as Styled from './CatalogItem.styled';
 import ImgComponent from '../ImgItem/ImgComponent';
 import { setModalContent, setModalStatus } from '../../redux/serviceSlice';
 import StarIcon from '@mui/icons-material/Star';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const CatalogItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -22,8 +22,17 @@ const CatalogItem = ({ item }) => {
     dispatch(setModalStatus(true));
   };
 
+  const result = item => {
+    return !item.favorites;
+  };
+
   const favoriteClick = () => {
-    dispatch(updateFavoriteThunk({ endPoint, params: item }));
+    dispatch(
+      updateFavoriteThunk({
+        endPoint,
+        params: { ...item, favorites: result(item) },
+      })
+    );
   };
 
   return (
@@ -42,16 +51,13 @@ const CatalogItem = ({ item }) => {
             <IconButton
               type="button"
               sx={{ padding: 0 }}
-              onClick={favoriteClick}
+              onClick={() => favoriteClick(item)}
             >
-              <Icon
-                styles={{
-                  fill: '#212121',
-                }}
-                width={24}
-                height={24}
-                iconId={'hart'}
-              />
+              {!item.favorites ? (
+                <FavoriteIcon />
+              ) : (
+                <FavoriteIcon sx={{ color: '#e60a0a' }} />
+              )}
             </IconButton>
           </Styled.PriceStyled>
         </Styled.WrrapNameAndPice>
@@ -66,7 +72,9 @@ const CatalogItem = ({ item }) => {
           {item?.description}
         </Styled.WrraperDescription>
         <CategoriesItam item={item} />
-        <button onClick={() => ShowModal(item)}>Show more</button>
+        <Styled.CatalogButton onClick={() => ShowModal(item)}>
+          Show more
+        </Styled.CatalogButton>
       </Styled.WrrapWidth>
     </Styled.WrraperCatalogItem>
   );

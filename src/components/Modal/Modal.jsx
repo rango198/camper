@@ -30,7 +30,7 @@ export default function Modal({ show, children, onClose }) {
               position: 'fixed',
               inset: '0',
               backgroundColor: 'rgba(75, 85, 99, 0.75)',
-              transition: 'opacity 0.3s ease-out',
+              // transition: 'opacity 0.6s ease-out',
             }}
           />
         </Transition.Child>
@@ -44,7 +44,7 @@ export default function Modal({ show, children, onClose }) {
             boxShadow:
               '0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)',
             transition: 'all 0.3s ease-out',
-            padding: '1.75rem',
+            padding: '1.65rem',
             margin: '1.25rem auto',
             width: '100%',
             maxWidth: '982px',

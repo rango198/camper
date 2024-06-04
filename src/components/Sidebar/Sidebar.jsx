@@ -1,5 +1,6 @@
 import ButtonEquipment from '../Button/ButtonEquipment/ButtonEquipment';
 import ButtonType from '../Button/ButtonType/ButtonType';
+import * as Styled from './Sidebar.styled';
 
 const Sidebar = () => {
   return (
@@ -16,6 +17,9 @@ const Sidebar = () => {
       <div>
         <p style={{ marginBottom: '24px' }}>Vehicle Type</p>
         <ButtonType />
+      </div>
+      <div>
+        <Styled.SidebarButton type="button">Search</Styled.SidebarButton>
       </div>
     </div>
   );

@@ -11,10 +11,11 @@ const Catalog = () => {
 
   const mapData = useSelector(selectDataCamper);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-
+  // eslint-disable-next-line
   useEffect(() => {
     dispatch(getDataCamperThunk({ endPoint }));
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   const endIndex = itemsPerPage;
   const displayedItems = mapData?.slice(0, endIndex);

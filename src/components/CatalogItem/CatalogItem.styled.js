@@ -33,7 +33,6 @@ export const TextName = styled.p`
   color: #101828;
   font-family: Inter;
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
   line-height: 30px;
 `;
@@ -46,7 +45,6 @@ export const TextPrice = styled.p`
   color: #101828;
   font-family: Inter;
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
   line-height: 30px;
 `;
@@ -57,11 +55,25 @@ export const WrraperDescription = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 `;
 
 export const WrraperRating = styled.div`
   display: flex;
   gap: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  align-items: center;
+`;
+
+export const CatalogButton = styled.button`
+  padding: 16px 40px;
+  background: #e44848;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.08px;
+  border-radius: 200px;
+  border: none;
 `;

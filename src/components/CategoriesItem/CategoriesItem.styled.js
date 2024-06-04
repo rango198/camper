@@ -4,7 +4,7 @@ export const WrapperCategoriesStyled = styled.div`
   border-radius: 20px;
   background: #f2f4f7;
   padding: 12px 18px;
-  width: 117px;
+  width: 135px;
   color: white;
 `;
 
@@ -25,7 +25,7 @@ export const ItemText = styled.p`
 
 export const WrrapFlex = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 `;

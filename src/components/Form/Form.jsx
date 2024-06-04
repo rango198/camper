@@ -44,7 +44,7 @@ const Form = () => {
           {...register('comments', { maxLength: 200 })}
           placeholder="Your comments"
         />
-        <input type="submit" />
+        <Style.FormButton type="submit">Send</Style.FormButton>
       </Style.WrrapInput>
     </form>
   );
