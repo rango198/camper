@@ -24,8 +24,8 @@ const App = () => {
         <Route path="/camper" element={<Layout />}>
           <Route index element={<HomePage />} />
 
-          <Route path="/camper/favorite" element={<FavoritePage />} />
           <Route path="/camper/catalog" element={<CatalogPage />} />
+          <Route path="/camper/favorite" element={<FavoritePage />} />
         </Route>
       </Routes>
       <Modal show={open} onClose={close}>

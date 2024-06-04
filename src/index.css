@@ -47,7 +47,10 @@ p {
   padding: 0;
 }
 
+
+Link,
 a {
+  color: azure;
   text-decoration: none;
 }
 
