@@ -22,3 +22,24 @@ export const WrraperRating = styled.div`
   gap: 10px;
   margin-bottom: 16px;
 `;
+export const BoxdImage = styled.img`
+  min-width: 290px;
+  height: 310px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+`;
+
+export const Description = styled.div`
+  padding: 20px 10px;
+`;
+export const ReviewsText = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 7px;
+`;
+export const WrrapBoxImage = styled.div`
+  display: flex;
+  gap: 16px;
+`;

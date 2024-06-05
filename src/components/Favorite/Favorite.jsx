@@ -3,10 +3,17 @@ import { selectDataCamper } from '../../redux/selector';
 import { useEffect } from 'react';
 import { getDataCamperThunk } from '../../redux/serviceThunks';
 import CatalogItem from '../CatalogItem/CatalogItem';
+import { useNavigate } from 'react-router-dom';
+import * as Styled from './Favorite.styled';
 
 const Favorite = () => {
   const dispatch = useDispatch();
   const endPoint = 'advert';
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     dispatch(getDataCamperThunk({ endPoint }));
@@ -16,23 +23,19 @@ const Favorite = () => {
   const favoriteData = useSelector(selectDataCamper);
 
   return (
-    <div
-      style={{
-        marginTop: '24px',
-        width: '900px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '24px',
-        margin: '0 auto',
-      }}
-    >
-      {favoriteData?.map(item => {
-        if (item.favorites === true) {
-          return <CatalogItem key={item?._id} item={item} />;
-        }
-        return null;
-      })}
-    </div>
+    <Styled.WrraperFavorites>
+      <Styled.FavoriteButton type="button" onClick={goBack}>
+        Go back
+      </Styled.FavoriteButton>
+      <Styled.ListFavorites>
+        {favoriteData?.map(item => {
+          if (item.favorites === true) {
+            return <CatalogItem key={item?._id} item={item} />;
+          }
+          return null;
+        })}
+      </Styled.ListFavorites>
+    </Styled.WrraperFavorites>
   );
 };
 

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectModalContent } from '../../redux/selector';
 import * as Style from './ModalContent.styled';
 import Tabs from '../Tabs/Tabs';
+import Icon from '../Icon/Icon';
 
 const ModalContent = () => {
   const { recordData } = useSelector(selectModalContent);
@@ -11,9 +12,17 @@ const ModalContent = () => {
       <div>
         <Style.TextName>{recordData?.name}</Style.TextName>
         <Style.WrraperRating>
-          <p>
+          <Style.ReviewsText>
+            <Icon
+              styles={{
+                fill: '#FFC531',
+              }}
+              width={20}
+              height={20}
+              iconId="star"
+            />
             {recordData?.reviews?.length} reviews, {recordData?.location}
-          </p>
+          </Style.ReviewsText>
         </Style.WrraperRating>
         <Style.TextPrice>
           €
@@ -22,26 +31,15 @@ const ModalContent = () => {
             : Number(recordData?.price).toFixed(2)}
         </Style.TextPrice>
       </div>
-      <div style={{ display: 'flex', gap: '16px' }}>
+      <Style.WrrapBoxImage>
         {recordData?.gallery?.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              minWidth: '290px',
-              height: '310px',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundImage: `url(${item})`,
-            }}
-          ></div>
+          <Style.BoxdImage key={index} src={item} alt={item} />
         ))}
-      </div>
-      <div>{recordData?.description}</div>
-      <div>
+      </Style.WrrapBoxImage>
+      <Style.Description>{recordData?.description}</Style.Description>
+      <>
         <Tabs />
-      </div>
+      </>
     </div>
   );
 };

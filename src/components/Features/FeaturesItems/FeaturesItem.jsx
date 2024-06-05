@@ -18,7 +18,7 @@ const FeaturesItem = ({ item }) => {
     },
     {
       id: 'Conditioner',
-      text: item?.details?.airConditioner,
+      text: `${item?.details?.airConditioner} condic`,
       iconId: 'Conditioner',
     },
     {
@@ -28,12 +28,12 @@ const FeaturesItem = ({ item }) => {
     },
     {
       id: 'radio',
-      text: item?.details?.radio,
+      text: `${item?.details?.radio} radio`,
       iconId: 'Radio',
     },
     {
       id: 'hob',
-      text: item?.details?.hob,
+      text: `${item?.details?.hob} hob`,
       iconId: 'hob',
     },
   ];
@@ -45,7 +45,7 @@ const FeaturesItem = ({ item }) => {
           <Style.FeaturesItem>
             <Icon
               styles={{
-                fill: '#212121',
+                stroke: '#212121',
               }}
               width={20}
               height={20}

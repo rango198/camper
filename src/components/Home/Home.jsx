@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import beautifulImage from '../../logo/beautiful.webp';
-import logo from '../../logo/Logo32.png';
+import Icon from '../Icon/Icon';
 
 const Home = () => {
   return (
@@ -27,7 +27,14 @@ const Home = () => {
           }}
         >
           <Link to="/camper">
-            <img src={logo} alt="Logo" width={100} height={100} />
+            <Icon
+              styles={{
+                stroke: '#212112',
+              }}
+              width={80}
+              height={80}
+              iconId="Logo"
+            />
           </Link>
           <p style={{ fontFamily: 'Inter', color: '#FFF' }}>
             +38 (067) 700 36 50

@@ -1,5 +1,33 @@
 @import url("normalize.css");
+
 /* bring in normalize.css styles */
+::-webkit-scrollbar {
+  width: 12px;
+  /* Ширина скролбара */
+}
+
+/* Стилізувати трек скролбара (фонова частина) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Колір треку */
+  border-radius: 10px;
+  /* Радіус заокруглення треку */
+}
+
+/* Стилізувати повзунок скролбара */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* Колір повзунка */
+  border-radius: 10px;
+  /* Радіус заокруглення повзунка */
+}
+
+/* Зміна кольору повзунка при наведенні */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* Колір повзунка при наведенні */
+}
+
 
 body {
   margin: 0;

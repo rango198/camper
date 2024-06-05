@@ -4,6 +4,7 @@ import ButtonType from '../Button/ButtonType/ButtonType';
 import * as Styled from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 import { setModalContent } from '../../redux/serviceSlice';
+import Icon from '../Icon/Icon';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -19,36 +20,51 @@ const Sidebar = () => {
     }
   };
   return (
-    <div style={{ width: '360px' }}>
-      <div style={{ marginBottom: '24px' }}>
-        <p>Location</p>
-        <Styled.SidebarInput type="text" onChange={handleChang} />
-      </div>
-      <p style={{ marginBottom: '24px' }}>Filters</p>
-      <div>
-        <p style={{ marginBottom: '24px' }}>Vehicle equipment</p>
+    <>
+      <Styled.SidebarWrapper>
+        <Styled.TextLocation>Location</Styled.TextLocation>
+        <Styled.SidebarInput
+          type="text"
+          onChange={handleChang}
+          placeholder="location"
+        />
+        <Styled.IconWrapper>
+          <Icon
+            styles={{
+              fill: '#fff',
+              stroke: '#212121',
+            }}
+            width={20}
+            height={20}
+            iconId="icon-map-pin"
+          />
+        </Styled.IconWrapper>
+
+        <Styled.TextFilter>Filters</Styled.TextFilter>
+
+        <Styled.TextVehicle>Vehicle equipment</Styled.TextVehicle>
         <ButtonEquipment />
-      </div>
-      <div>
-        <p style={{ marginBottom: '24px' }}>Vehicle Type</p>
+
+        <Styled.TextVehicle>Vehicle Type</Styled.TextVehicle>
         <ButtonType />
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Styled.SidebarButton type="button">Search</Styled.SidebarButton>
-        <div
-          style={{
-            background: '#e44848',
-            width: '110px',
-            padding: '18px',
-            borderRadius: '100px',
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Link to="/camper/favorite">Favorites</Link>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Styled.SidebarButton type="button">Search</Styled.SidebarButton>
+          <div
+            style={{
+              background: '#e44848',
+              width: '110px',
+              padding: '18px',
+              borderRadius: '100px',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <Link to="/camper/favorite">Favorites</Link>
+          </div>
         </div>
-      </div>
-    </div>
+      </Styled.SidebarWrapper>
+    </>
   );
 };
 

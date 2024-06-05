@@ -1,31 +1,14 @@
 import React from 'react';
 import Icon from '../../Icon/Icon';
-import AirIcon from '@mui/icons-material/Air';
 
 const ButtonEquipment = () => {
   const data = [
-    { title: 'AC', iconId: 'AirIcon' },
+    { title: 'AC', iconId: 'AC' },
     { title: 'Automatic', iconId: 'Automatic' },
     { title: 'Kitchen', iconId: 'kitchen' },
     { title: 'TV', iconId: 'TV' },
     { title: 'Shower', iconId: 'Shower' },
   ];
-
-  const renderIcon = iconId => {
-    if (iconId === 'AirIcon') {
-      return <AirIcon style={{ fill: '#212121', width: 24, height: 24 }} />;
-    }
-    return (
-      <Icon
-        styles={{
-          fill: '#212121',
-        }}
-        width={24}
-        height={24}
-        iconId={iconId}
-      />
-    );
-  };
 
   return (
     <div
@@ -54,7 +37,14 @@ const ButtonEquipment = () => {
               alignItems: 'center',
             }}
           >
-            {renderIcon(item.iconId)}
+            <Icon
+              styles={{
+                fill: '#212121',
+              }}
+              width={24}
+              height={24}
+              iconId={item.iconId}
+            />
             {item.title}
           </button>
         </div>
