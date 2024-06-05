@@ -5,9 +5,15 @@ import * as Styled from './Sidebar.styled';
 import { useDispatch } from 'react-redux';
 import { setModalContent } from '../../redux/serviceSlice';
 import Icon from '../Icon/Icon';
+import { getDataCamperThunk } from '../../redux/serviceThunks';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const endPoint = 'advert';
+
+  const handleReset = () => {
+    dispatch(getDataCamperThunk({ endPoint }));
+  };
 
   const handleChang = event => {
     const values = event.target.value;
@@ -26,7 +32,7 @@ const Sidebar = () => {
         <Styled.SidebarInput
           type="text"
           onChange={handleChang}
-          placeholder="location"
+          placeholder="find location"
         />
         <Styled.IconWrapper>
           <Icon
@@ -49,7 +55,9 @@ const Sidebar = () => {
         <ButtonType />
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Styled.SidebarButton type="button">Search</Styled.SidebarButton>
+          <Styled.SidebarButton type="button" onClick={handleReset}>
+            Reset
+          </Styled.SidebarButton>
           <div
             style={{
               background: '#e44848',

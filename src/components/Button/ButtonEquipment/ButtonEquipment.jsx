@@ -1,13 +1,27 @@
 import React from 'react';
 import Icon from '../../Icon/Icon';
+import { useDispatch } from 'react-redux';
+import { setDataCamper } from '../../../redux/serviceSlice';
+import * as Styled from './ButtonEquipment.styled';
 
 const ButtonEquipment = () => {
+  const dispatch = useDispatch();
+
+  const filterClick = (key, value) => {
+    dispatch(setDataCamper({ key, value }));
+  };
+
   const data = [
-    { title: 'AC', iconId: 'AC' },
-    { title: 'Automatic', iconId: 'Automatic' },
-    { title: 'Kitchen', iconId: 'kitchen' },
-    { title: 'TV', iconId: 'TV' },
-    { title: 'Shower', iconId: 'Shower' },
+    { title: 'AC', iconId: 'AC', key: 'airConditioner', value: 1 },
+    {
+      title: 'Automatic',
+      iconId: 'Automatic',
+      key: 'transmission',
+      value: 'automatic',
+    },
+    { title: 'Kitchen', iconId: 'kitchen', key: 'kitchen', value: 1 },
+    { title: 'TV', iconId: 'TV', key: 'TV', value: 0 },
+    { title: 'Shower', iconId: 'Shower', key: 'shower', value: 1 },
   ];
 
   return (
@@ -23,19 +37,9 @@ const ButtonEquipment = () => {
     >
       {data.map(item => (
         <div key={item.title}>
-          <button
+          <Styled.Button
             type="button"
-            style={{
-              width: '110px',
-              display: 'flex',
-              height: '95px',
-              gap: '8px',
-              padding: '17px 18px',
-              flexDirection: 'column',
-              border: '1px solid #5a57579e',
-              borderRadius: '10px',
-              alignItems: 'center',
-            }}
+            onClick={() => filterClick(item.key, item.value)}
           >
             <Icon
               styles={{
@@ -46,7 +50,7 @@ const ButtonEquipment = () => {
               iconId={item.iconId}
             />
             {item.title}
-          </button>
+          </Styled.Button>
         </div>
       ))}
     </div>

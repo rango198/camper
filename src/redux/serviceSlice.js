@@ -23,6 +23,12 @@ const serviceSlice = createSlice({
     setModalContent: (state, action) => {
       state.modalContent = { ...state.modalContent, ...action.payload };
     },
+    setDataCamper: (state, action) => {
+      const { key, value } = action.payload;
+      state.dataCamper = state.dataCamper.filter(
+        item => item.details[key] === value
+      );
+    },
   },
   extraReducers: builder => {
     builder
@@ -61,6 +67,7 @@ const serviceSlice = createSlice({
   },
 });
 
-export const { setModalStatus, setModalContent } = serviceSlice.actions;
+export const { setModalStatus, setModalContent, setDataCamper } =
+  serviceSlice.actions;
 
 export const serviceReducer = serviceSlice.reducer;

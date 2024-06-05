@@ -12,7 +12,7 @@ export const SidebarButton = styled.button`
   font-weight: 500;
   line-height: 24px;
   color: white;
-  padding: 16px 60px;
+  padding: 8px 40px;
   border: none;
 `;
 
