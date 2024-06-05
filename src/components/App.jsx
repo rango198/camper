@@ -10,6 +10,7 @@ import ModalContent from './ModalContent/ModalContent';
 const HomePage = lazy(() => import('../page/homePage/HomePage'));
 const FavoritePage = lazy(() => import('../page/favoritesPage/FavoritePage'));
 const CatalogPage = lazy(() => import('../page/catalogPage/CatalogPage'));
+const PageError = lazy(() => import('../page/PageError/PageError'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const App = () => {
 
           <Route path="/camper/catalog" element={<CatalogPage />} />
           <Route path="/camper/favorite" element={<FavoritePage />} />
+          <Route path="*" element={<PageError />} />
         </Route>
       </Routes>
       <Modal show={open} onClose={close}>
